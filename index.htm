@@ -777,6 +777,7 @@
     <!--end contacts-->
 
 
+    
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="js/jquery.isotope.min.js"></script>
@@ -790,6 +791,7 @@
     <script src="js/scroolto.js"></script>
     <!--Scrool To-->
     <script src="js/settings.js"></script>
+
     <!--My settings-->
     <script>
         var __REPLAIN_ = '052f0143-7059-419e-ab9e-54a36005a50c';
@@ -798,8 +800,33 @@
         })('https://widget.replain.cc/dist/client.js');
         </script>
     <!--End js-->
-
-
+    
+    <!-- start modal -->
+    <script src="js/modal.js"></script>
+    <link rel="stylesheet" href="css/modal.css">      
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <!-- <h4 class="modal-title" id="myModalLabel">Modal title</h4> -->
+            </div>
+            <div class="modal-body">
+                    <h4 style="text-align: center">3.11 - 18.11 заказы не принимаем. Спасибо за понимание</h4>
+            </div>
+            <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+        </div>
+    </div>
+    <script>
+        jQuery(document).ready(function ($) {
+            $('#myModal').modal({"show":true})
+        });
+    </script>
+    <!-- end modal -->
 
 
 </body>
