@@ -44,22 +44,11 @@
     <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
     <!--END FAVICONS-->
-    <script>
 
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-71719568-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
 </head>
 
 <body>
+    <div id="person"></div>
     <div id="fb-root"></div>
     <script>
         (function (d, s, id) {
@@ -68,8 +57,10 @@
             js = d.createElement(s); js.id = id;
             js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
             fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    
+    
     <div class="container toppanel">
         <div class="grid_6 noMargin">
             <p class="iconphone">Телефон: <span>(066) 765 66 23</span></p>
@@ -180,8 +171,11 @@
             <div class="grid_12">
                 <div id="options" class="clear">
                     <ul id="filters" class="option-set clearfix" data-option-key="filter">
-                        <li class="orange"><a href="#filter" data-option-value="*" class="selected">Показать все</a></li>
-                        <li class="blue"><a href="#filter" data-option-value=".blue">Торты</a></li>
+                        <li class="orange"><a href="#filter" data-option-value="*" class="selected">Показать все</a>
+                        </li>
+                        <li class="blue"><a href="#filter" data-option-value=".pie_s">Торты S</a></li>
+                        <li class="orange"><a href="#filter" data-option-value=".pie_m">Торты M</a></li>
+                        <li class="red"><a href="#filter" data-option-value=".pie_l">Торты L</a></li>
                         <li class="yellow"><a href="#filter" data-option-value=".yellow">Капкейки</a></li>
                         <li class="navi"><a href="#filter" data-option-value=".green">Печенье</a></li>
                         <li class="white"><a href="#filter" data-option-value=".white">Праздник</a></li>
@@ -189,384 +183,46 @@
                 </div>
             </div>
             <!--end options-->
-            <!--start images-->
-            <div id="containerisotope" class="clear">
-                <div id="inline-1" style="display: none;height:500px; ">
-                    <img alt="" style="width:100%" src="img/section-works/1.jpg" />
+            <script id="itemsTemplate" type="x-tmpl-mustache">
+                {{#items}}
+                <div id="{{inlineId}}" style="display: none;height:500px; ">
+                    <img alt="" style="width:100%" src="img/section-works/{{image}}" />
                     <div class="worksarrow">
                         <img alt="" src="img/section-works/arrow.png" />
                     </div>
                     <div class="worksbottom"></div>
                     <div class="ribbon" style="width:100%">
-                        <h2>Торт с косточками</h2>
-                        <p>Торт без сахара! Состоит из мяса(курица, говядина) , моркови и риса, украшен торт печеньем
-                            из кэроба и глазурью без сахара.</p>
-                        <div>
-                            <span style="width:50%; float:left">S 300 г.-250 грн <br />M 800 г.-400 грн <br />L 1300
-                                г.- 500 грн.</span>
+                        <h2>{{name}}</h2>
+                        <p>
+                            {{#description}}
+                                {{.}} <br/>
+                            {{/description}}
+                        </p>
+                        <div>                            
+                            <span style="width:50%; float:left">
+                                {{#sizes}}
+                                {{.}} <br/>
+                                {{/sizes}}                                
+                            </span>
                             <span style="width:50%" class="iconphone">Заказать: (066) 765 66 23</span>
                         </div>
                     </div>
                 </div>
-                <div id="inline-2" style="display: none;height:500px; ">
-                    <img alt="" style="width:100%" src="img/section-works/2.jpg" />
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <div class="worksbottom"></div>
-                    <div class="ribbon">
-                        <h2>Торт сердце</h2>
-                        <p>Торт без сахара! Состоит из мяса (курица, говядина), моркови и риса, украшен торт нежирным
-                            творогом, глазурью без сахара и печеньем из кэроба. По желанию на тортике можно написать
-                            имя собаки.</p>
-                        <div>
-                            <span style="width:50%; float:left">600 г. - 400 грн.</span>
-                            <span style="width:50%" class="iconphone">Заказать: (066) 765 66 23</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div id="inline-3" style="display: none;height:500px; ">
-                    <img alt="" style="width:100%" src="img/section-works/3.jpg" />
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <div class="worksbottom"></div>
-                    <div class="ribbon">
-                        <h2>Торт Кость</h2>
-                        <p>Торт без сахара! Состоит из мяса( курица, говядина), моркови и риса, украшен торт нежирным
-                            творогом и глазурью без сахара . По желанию на тортике можно написать имя собаки.</p>
-                        <div>
-                            <span style="width:50%; float:left">M 600 г. - 400 грн. <br />L 1300 г.- 500 грн.</span>
-                            <span style="width:50%" class="iconphone">Заказать: (066) 765 66 23</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div id="inline-4" style="display: none;height:500px; ">
-                    <img alt="" style="width:100%" src="img/section-works/4.jpg" />
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <div class="worksbottom"></div>
-                    <div class="ribbon">
-                        <h2>Капкейки</h2>
-                        <p>Капкейк без сахара! Состоит из мяса(курица, говядина), кукурузной муки, моркови, клетчатки,
-                            украшен нежирным творогом.</p>
-                        <div>
-                            <span style="width:50%; float:left">2 шт - 120 грн</span>
-                            <span style="width:50%" class="iconphone">Заказать: (066) 765 66 23</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div id="inline-5" style="display: none; height: 500px;">
-                    <img alt="" style="width: 100%" src="img/section-works/5.jpg" />
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <div class="worksbottom"></div>
-                    <div class="ribbon">
-                        <h2>Печенье из мяса</h2>
-                        <p>Печенье без сахара! Состоит из мяса(курица, говядина), моркови и кукурузной муки с
-                            добавлением клетчатки.</p>
-                        <div>
-                            <span style="width: 50%; float: left">150 г. - 80 грн </span>
-                            <span style="width: 50%" class="iconphone">Заказать: (066) 765 66 23</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div id="inline-7" style="display: none; height: 500px;">
-                    <img alt="" style="width: 100%" src="img/section-works/7.jpg" />
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <div class="worksbottom"></div>
-                    <div class="ribbon">
-                        <h2>Фигурное печенье</h2>
-                        <p>Печенье в форме различных пород собак станет отличным подарком для вашей собаки! В коробочке
-                            2 вкуса: мясное с морковкой и тыквено- бананановое.</p>
-                        <div>
-                            <span style="width: 50%; float: left">200 г. - 120 грн </span>
-                            <span style="width: 50%" class="iconphone">Заказать: (066) 765 66 23</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div id="inline-8" style="display: none;" class="grid_11">
-                    <img alt="" style="width:100%" src="img/section-works/8.jpg" />
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <div class="worksbottom"></div>
-                    <div class="ribbon">
-                        <h2>Праздник для вашей собаки</h2>
-                        <p>Праздник для собаки. Мы организуем незабываемый праздник для вашей собаки с фотосессией,
-                            настоящим тортом для собак из мяса, вкусными лакомствами и всей необходимой атрибутикой для
-                            праздника.</p>
-                        <div>
-                            <span style="width:50%; float:left">3500 грн </span>
-                            <span style="width:50%" class="iconphone">Заказать: (066) 765 66 23</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div id="inline-9" style="display: none;" class="grid_11">
-                    <img alt="" style="width:100%" src="img/section-works/9.jpg" />
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <div class="worksbottom"></div>
-                    <div class="ribbon">
-                        <h2>Праздничный набор</h2>
-                        <p>Колпачек маленький 25 гривен, средний и большой 35 гривен, свечка 25 гривен</p>
-                        <div>
-                            <span style="width:50%; float:left">25 грн / 35 грн / 25 грн.</span>
-                            <span style="width:50%" class="iconphone">Заказать: (066) 765 66 23</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div id="inline-10" style="display: none; height: 500px;">
-                    <img alt="" style="width: 100%" src="img/section-works/blue.jpg" />
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <div class="worksbottom"></div>
-                    <div class="ribbon">
-                        <h2> Торт Кость цветной</h2>
-                        <p>Торт без сахара! Состоит из мяса ( курица или говядина на выбор), моркови и риса, украшен
-                            цветной глазурью ( цвета на выбор) без сахара и нежирным творогом. По желанию на тортике
-                            можно написать имя собаки.</p>
-                        <div>
-                            <span style="width: 50%; float: left">M 600 г. - 400 грн. <br />L 1300 г.- 500 грн.</span>
-                            <span style="width: 50%" class="iconphone">Заказать: (066) 765 66 23</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div id="inline-11" style="display: none; height: 500px;">
-                    <img alt="" style="width: 100%" src="img/section-works/blue_yellow.jpg" />
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <div class="worksbottom"></div>
-                    <div class="ribbon">
-                        <h2> Торт с косточками цветной</h2>
-                        <p>Торт без сахара! Состоит из мяса ( курица или говядина на выбор), моркови и риса, украшен
-                            цветной глазурью ( цвета на выбор) без сахара и печеньем из кэроба.</p>
-                        <div>
-                            <span style="width: 50%; float: left">S 300 г. - 250 грн. <br />M 600 г. - 400 грн. <br />L
-                                1300 г.- 500 грн.</span>
-                            <span style="width: 50%" class="iconphone">Заказать: (066) 765 66 23</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div id="inline-12" style="display: none; height: 500px;">
-                    <img alt="" style="width: 100%" src="img/section-works/yellow_puppy.jpg" />
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <div class="worksbottom"></div>
-                    <div class="ribbon">
-                        <h2> Топпер для торта</h2>
-                        <p>Топпер для торта - это печенье на палочке в форме собачки из банана и кукурузной муки. Без
-                            сахара!</p>
-                        <div>
-                            <span style="width: 50%; float: left">30 грн.</span>
-                            <span style="width: 50%" class="iconphone">Заказать: (066) 765 66 23</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div id="inline-13" style="display: none; height: 500px;">
-                    <img alt="" style="width: 100%" src="img/section-works/lapka.jpg" />
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <div class="worksbottom"></div>
-                    <div class="ribbon">
-                        <h2> Торт Лапка</h2>
-                        <p>Торт без сахара! Состоит из мяса ( курица или говядина), моркови и риса, украшен торт
-                            печеньем из кэроба и глазурью без сахара.</p>
-                        <div>
-                            <span style="width: 50%; float: left">600 г. - 400 грн</span>
-                            <span style="width: 50%" class="iconphone">Заказать: (066) 765 66 23</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div id="inline-14" style="display: none; height: 500px;">
-                    <img alt="" style="width: 100%" src="img/section-works/cvetok.jpg" />
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <div class="worksbottom"></div>
-                    <div class="ribbon">
-                        <h2> Торт с цветочками</h2>
-                        <p>Торт без сахара! Состоит из мяса ( курица или говядина), моркови и риса, украшен торт
-                            вафельными цветочками и глазурью без сахара.</p>
-                        <div>
-                            <span style="width: 50%; float: left">300 г. - 250 грн.</span>
-                            <span style="width: 50%" class="iconphone">Заказать: (066) 765 66 23</span>
-                        </div>
-                    </div>
-
-                </div>
-                <!--element-->
-                <div class="element blue" data-category="blue">
-                    <a data-rel="prettyPhoto[inline]" href="#inline-1">
-                        <img alt="" class="imgwork" src="img/section-works/1.jpg" />
+                <div class="element {{category}}" data-category="{{category}}">
+                    <a data-rel="prettyPhoto[inline]" href="#{{inlineId}}">
+                        <img alt="" class="imgwork" src="img/section-works/{{image}}" />
                     </a>
                     <div class="worksarrow">
                         <img alt="" src="img/section-works/arrow.png" />
                     </div>
-                    <h2>Торт с косточками</h2>
-                    <p> 300г.:250 грн / 800г.:400 грн / 1300 г.:500 грн.</p>
+                    <h2>{{name}}</h2>
+                    <p>{{price}}</p>
                     <div class="worksbottom"></div>
                 </div>
-                <!--element-->
-                <!--element-->
-                <div class="element blue" data-category="blue">
-                    <a data-rel="prettyPhoto[inline]" href="#inline-2">
-                        <img alt="" class="imgwork" src="img/section-works/2.jpg" />
-                    </a>
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <h2>Торт сердце</h2>
-                    <p>400 грн.</p>
-                    <div class="worksbottom"></div>
-                </div>
-
-                <div class="element yellow" data-category="yellow">
-                    <a data-rel="prettyPhoto[inline]" href="#inline-4">
-                        <img alt="" class="imgwork" src="img/section-works/4.jpg" />
-                    </a>
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <h2>Капкейки</h2>
-                    <p>2 шт 120 грн</p>
-                    <div class="worksbottom"></div>
-                </div>
-
-                <div class="element blue" data-category="blue">
-                    <a data-rel="prettyPhoto[inline]" href="#inline-3">
-                        <img alt="" class="imgwork" src="img/section-works/3.jpg" />
-                    </a>
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <h2>Торт Кость</h2>
-                    <p>600г.:400 грн / 1300г.:500 грн</p>
-                    <div class="worksbottom"></div>
-                </div>
-                <div class="element blue" data-category="blue">
-                    <a data-rel="prettyPhoto[inline]" href="#inline-10">
-                        <img alt="" class="imgwork" src="img/section-works/blue.jpg" />
-                    </a>
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <h2>Торт Кость цветной</h2>
-                    <p> 600г.:400 грн / 1300г.:500 грн</p>
-                    <div class="worksbottom"></div>
-                </div>
-                <div class="element blue" data-category="blue">
-                    <a data-rel="prettyPhoto[inline]" href="#inline-11">
-                        <img alt="" class="imgwork" src="img/section-works/blue_yellow.jpg" />
-                    </a>
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <h2>Торт с косточками цветной</h2>
-                    <p> 300г.:250 грн / 800г.:400 грн / 1300 г.:500 грн.</p>
-                    <div class="worksbottom"></div>
-                </div>
-                <div class="element blue" data-category="blue">
-                    <a data-rel="prettyPhoto[inline]" href="#inline-13">
-                        <img alt="" class="imgwork" src="img/section-works/lapka.jpg" />
-                    </a>
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <h2>Торт Лапка </h2>
-                    <p>600 г.:400 грн.</p>
-                    <div class="worksbottom"></div>
-                </div>
-                <div class="element blue" data-category="blue">
-                    <a data-rel="prettyPhoto[inline]" href="#inline-14">
-                        <img alt="" class="imgwork" src="img/section-works/cvetok.jpg" />
-                    </a>
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <h2>Торт с цветочками</h2>
-                    <p> 300 .:250 грн.</p>
-                    <div class="worksbottom"></div>
-                </div>
-                <div class="element green" data-category="green">
-                    <a data-rel="prettyPhoto[inline]" href="#inline-5">
-                        <img alt="" class="imgwork" src="img/section-works/5.jpg" />
-                    </a>
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <h2>Печенье из мяса</h2>
-                    <p>150 г: 80 гривен</p>
-                    <div class="worksbottom"></div>
-                </div>
-                <div class="element green" data-category="green">
-                    <a data-rel="prettyPhoto[inline]" href="#inline-7">
-                        <img alt="" class="imgwork" src="img/section-works/7.jpg" />
-                    </a>
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <h2>Фигурное печенье</h2>
-                    <p>200 г: 120 гривен</p>
-                    <div class="worksbottom"></div>
-                </div>
-
-                <div class="element white" data-category="white">
-                    <a data-rel="prettyPhoto[inline]" href="#inline-8">
-                        <img alt="" class="imgwork" src="img/section-works/8.jpg" />
-                    </a>
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <h2>Праздник для вашей собаки</h2>
-                    <p>3500 гривен</p>
-                    <div class="worksbottom"></div>
-                </div>
-                <div class="element white" data-category="white">
-                    <a data-rel="prettyPhoto[inline]" href="#inline-9">
-                        <img alt="" class="imgwork" src="img/section-works/9.jpg" />
-                    </a>
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <h2>Праздничный набор</h2>
-                    <p>S -25 грн /M-L35 грн/свечка 25 грн</p>
-                    <div class="worksbottom"></div>
-                </div>
-
-                <div class="element white" data-category="white">
-                    <a data-rel="prettyPhoto[inline]" href="#inline-12">
-                        <img alt="" class="imgwork" src="img/section-works/yellow_puppy.jpg" />
-                    </a>
-                    <div class="worksarrow">
-                        <img alt="" src="img/section-works/arrow.png" />
-                    </div>
-                    <h2>Топпер для торта</h2>
-                    <p> 30 грн.</p>
-                    <div class="worksbottom"></div>
-                </div>
-
-
+                {{/items}} 
+            </script>
+            <!--start images-->
+            <div id="containerisotope" class="clear">
 
             </div>
             <!--end images-->
@@ -653,8 +309,10 @@
 
         <div class="anchors">
             <div class="contanchors">
-                <a href="#services"><img width="45" class="anchortop" alt="" src="img/anchors/toptestimonials.png" /></a>
-                <a href="#delivery"><img width="45" class="anchorbottom" alt="" src="img/anchors/bottomtestimonials.png" /></a>
+                <a href="#services"><img width="45" class="anchortop" alt=""
+                        src="img/anchors/toptestimonials.png" /></a>
+                <a href="#delivery"><img width="45" class="anchorbottom" alt=""
+                        src="img/anchors/bottomtestimonials.png" /></a>
             </div>
         </div>
 
@@ -677,15 +335,15 @@
                     <div class="del">
                         <ul>
                             <li>
-                                <p>Заказы принимаем заранее( минимум за 2-3 дня)</p>
+                                <p>Заказы принимаем заранее( минимум за 3-4 дня)</p>
                             </li>
                             <!--you can edit-->
                             <li>
-                                <p>Самовывоз от метро Позняки</p>
+                                <p>Cамовывоз от улицы Соломии Крушельницкой 15</p>
                             </li>
                             <!--you can edit-->
                             <li>
-                                <p>Доставка курьером по Киеву в зависимости от района 50-100 гривен</p>
+                                <p>Доставка курьером по Киеву в зависимости от района 85-170 гривен</p>
                             </li>
                             <!--you can edit-->
                             <li>
@@ -714,7 +372,8 @@
         <div class="anchors">
             <div class="contanchors">
                 <a href="#delivery"><img width="45" class="anchortop" alt="" src="img/anchors/topsocial.png" /></a>
-                <a href="#oursocial"><img width="45" class="anchorbottom" alt="" src="img/anchors/bottomsocial.png" /></a>
+                <a href="#oursocial"><img width="45" class="anchorbottom" alt=""
+                        src="img/anchors/bottomsocial.png" /></a>
             </div>
         </div>
         <!--end anchors-->
@@ -733,21 +392,29 @@
                     data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
                     data-show-facepile="true" data-show-posts="true">
                     <div class="fb-xfbml-parse-ignore">
-                        <blockquote cite="https://www.facebook.com/dogbakery.com.ua"><a href="https://www.facebook.com/dogbakery.com.ua">Dog
+                        <blockquote cite="https://www.facebook.com/dogbakery.com.ua"><a
+                                href="https://www.facebook.com/dogbakery.com.ua">Dog
                                 Bakery</a></blockquote>
                     </div>
                 </div>
             </div>
             <!--<div class="grid_2"></div>-->
             <div class="grid_6 fixW">
-                <blockquote class="instagram-media" data-instgrm-version="5" style="background: #FFF; border: 0; border-radius: 3px; box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 10px 0 rgba(0, 0, 0, 0.15);  max-width: 658px; padding: 0; width: 500px; ">
+                <blockquote class="instagram-media" data-instgrm-version="5"
+                    style="background: #FFF; border: 0; border-radius: 3px; box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 10px 0 rgba(0, 0, 0, 0.15);  max-width: 658px; padding: 0; width: 500px; ">
                     <div style="padding: 8px;">
-                        <div style="background: #F8F8F8; line-height: 0; margin-top: 40px; padding: 50.0% 0; text-align: center; width: 500px;">
-                            <div style="background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display: block; height: 44px; margin: 0 auto -44px; position: relative; top: -22px; width: 44px;"></div>
+                        <div
+                            style="background: #F8F8F8; line-height: 0; margin-top: 40px; padding: 50.0% 0; text-align: center; width: 500px;">
+                            <div
+                                style="background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display: block; height: 44px; margin: 0 auto -44px; position: relative; top: -22px; width: 44px;">
+                            </div>
                         </div>
-                        <p style="color: #c9c8cd; font-family: Arial, sans-serif; font-size: 14px; line-height: 17px; margin-bottom: 0; margin-top: 8px; overflow: hidden; padding: 8px 0 7px; text-align: center; text-overflow: ellipsis; white-space: nowrap;">
-                            <a href="https://instagram.com/p/5o3oPFC63s/" style="color: #c9c8cd; font-family: Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: normal; line-height: 17px; text-decoration: none;"
-                                target="_blank">A photo posted by Dog Bakery (@_dogbakery_)</a> on <time style="font-family: Arial, sans-serif; font-size: 14px; line-height: 17px;"
+                        <p
+                            style="color: #c9c8cd; font-family: Arial, sans-serif; font-size: 14px; line-height: 17px; margin-bottom: 0; margin-top: 8px; overflow: hidden; padding: 8px 0 7px; text-align: center; text-overflow: ellipsis; white-space: nowrap;">
+                            <a href="https://instagram.com/p/5o3oPFC63s/"
+                                style="color: #c9c8cd; font-family: Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: normal; line-height: 17px; text-decoration: none;"
+                                target="_blank">A photo posted by Dog Bakery (@_dogbakery_)</a> on <time
+                                style="font-family: Arial, sans-serif; font-size: 14px; line-height: 17px;"
                                 datetime="2015-07-27T11:52:12+00:00">Jul 27, 2015 at 4:52am PDT</time>
                         </p>
                     </div>
@@ -778,6 +445,8 @@
 
 
 
+    <script src="js/mustache.min.js"></script>
+    <script src="js/main.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="js/jquery.isotope.min.js"></script>
     <!--isotope-->
@@ -793,10 +462,11 @@
     <!--My settings-->
     <script>
         var __REPLAIN_ = '052f0143-7059-419e-ab9e-54a36005a50c';
-        (function(u){var s=document.createElement('script');s.type='text/javascript';s.async=true;s.src=u;
-        var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
+        (function (u) {
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = u;
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
         })('https://widget.replain.cc/dist/client.js');
-        </script>
+    </script>
     <!--End js-->
 
 
