@@ -825,6 +825,9 @@
         jQuery(document).ready(function ($) {
             $('#myModal').modal({"show":true})
         });
+        $("#myModal").on('hide.bs.modal', function () {  
+          return false
+        });
     </script>
     <!-- end modal -->
 
